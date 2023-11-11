@@ -1,0 +1,11 @@
+FROM tomcat:latest
+
+# Remove the default Tomcat apps
+RUN rm -rf /usr/local/tomcat/webapps/*
+
+# Copy your war file into the webapps directory
+COPY sample.war /usr/local/tomcat/webapps/
+
+EXPOSE 8080
+
+CMD ["catalina.sh", "run"]
