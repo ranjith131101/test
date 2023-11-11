@@ -35,7 +35,7 @@ resource "aws_security_group" "web_access" {
 resource "aws_instance" "example_instance" {
   ami             = "ami-0c55b159cbfafe1f0"  # Specify your desired AMI ID
   instance_type   = "t2.micro"
-  security_group  = [aws_security_group.web_access.id]
+  security_group  =  ["${aws_security_group.web_access.name}"]
 
   tags = {
     Name = "example-instance"
