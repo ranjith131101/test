@@ -1,0 +1,20 @@
+---
+- name: Configure Web Server
+  hosts: your_target_servers
+
+  tasks:
+    - name: Install httpd package
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start and enable httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Copy fstab file to /tmp
+      copy:
+        src: /etc/fstab
+        dest: /tmp/fstab
